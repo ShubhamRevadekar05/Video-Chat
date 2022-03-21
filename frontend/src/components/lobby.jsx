@@ -10,9 +10,9 @@ export default class Lobby extends Component {
 
   render() {
     return (
-        <main>
+        <React.Fragment>
             <section id="form-container">
-              <img src="/static/images/chat-icon.png"/>
+              <img id="logo" src="/static/images/chat-icon.png" alt='Chat Room' />
                 <div id="welcome-message">
                     <h1>Welcome to MyChat</h1>
                     <p>A group video calling platform made just for you!</p>
@@ -23,12 +23,12 @@ export default class Lobby extends Component {
 
                         <div className="form-field">
                             <label>Room:</label>
-                            <input name="room" placeholder="Enter a room name..." style={{"text-transform": "uppercase"}}/>
+                            <input name="room" placeholder="Enter a room name..." style={{"textTransform": "uppercase"}}/>
                         </div>
 
                         <div className="form-field">
                             <label>Name:</label>
-                            <input name="name" placeholder="Enter your name..." style={{"text-transform": "uppercase"}}/>
+                            <input name="name" placeholder="Enter your name..." style={{"textTransform": "uppercase"}}/>
                         </div>
 
                         <div className="form-field">
@@ -37,7 +37,7 @@ export default class Lobby extends Component {
                     </div>
                 </form>
             </section>
-        </main>
+        </React.Fragment>
     );
   }
 }

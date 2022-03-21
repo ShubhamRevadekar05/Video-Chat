@@ -4,10 +4,6 @@ export default class Room extends Component {
   componentDidMount = () => {
     var script = document.createElement('script');
     script.type = "text/javascript";
-    script.src = '/static/assets/AgoraRTC_N-4.8.0.js';
-    document.body.appendChild(script);
-    script = document.createElement('script');
-    script.type = "text/javascript";
     script.src = '/static/js/streams.js';
     document.body.appendChild(script);
   }
@@ -15,7 +11,6 @@ export default class Room extends Component {
   render() {
     return (
       <React.Fragment>
-        <main>
           <section id="room-name-wrapper">
             <p>Room Name: <span id="room-name"></span></p>
           </section>
@@ -35,7 +30,6 @@ export default class Room extends Component {
               <img className="control-icon" id="leave-btn" src="/static/images/leave.svg" alt="Leave" />
             </div>
           </section>
-        </main>
       </React.Fragment>
     );
   }

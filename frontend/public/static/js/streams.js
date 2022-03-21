@@ -1,7 +1,9 @@
-
-const APP_ID = '5eb3b3d4feb94733a85d89d9c352b405'
-const TOKEN = sessionStorage.getItem('token')
-const CHANNEL = sessionStorage.getItem('room')
+fetch("/config.json")
+.then(async res => {
+    const config = await res.json()
+    const APP_ID = config.appID
+    const TOKEN = sessionStorage.getItem('token')
+    const CHANNEL = sessionStorage.getItem('room')
 let UID = sessionStorage.getItem('UID')
 
 let NAME = sessionStorage.getItem('name')
@@ -104,7 +106,6 @@ let toggleMic = async (e) => {
 }
 
 let createMember = async () => {
-    let config = await (await fetch('/config.json')).json()
     let response = await fetch(`${config.backendHost}/create_member/`, {
         method:'POST',
         headers: {
@@ -118,13 +119,13 @@ let createMember = async () => {
 
 
 let getMember = async (user) => {
-    let response = await fetch(`/get_member/?UID=${user.uid}&room_name=${CHANNEL}`)
+    let response = await fetch(`${config.backendHost}/get_member/?UID=${user.uid}&room_name=${CHANNEL}`)
     let member = await response.json()
     return member
 }
 
 let deleteMember = async () => {
-    let response = await fetch('/delete_member/', {
+    let response = await fetch(`${config.backendHost}/delete_member/`, {
         method:'POST',
         headers: {
             'Content-Type':'application/json'
@@ -141,4 +142,4 @@ joinAndDisplayLocalStream()
 document.getElementById('leave-btn').addEventListener('click', leaveAndRemoveLocalStream)
 document.getElementById('camera-btn').addEventListener('click', toggleCamera)
 document.getElementById('mic-btn').addEventListener('click', toggleMic)
-
+})
