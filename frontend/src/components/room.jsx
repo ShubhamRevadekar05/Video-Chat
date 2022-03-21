@@ -4,12 +4,12 @@ export default class Room extends Component {
   componentDidMount = () => {
     var script = document.createElement('script');
     script.type = "text/javascript";
+    script.src = '/static/assets/AgoraRTC_N-4.8.0.js';
+    document.body.appendChild(script);
+    script = document.createElement('script');
+    script.type = "text/javascript";
     script.src = '/static/js/streams.js';
     document.body.appendChild(script);
-    //script = document.createElement('script');
-    //script.type = "text/javascript";
-    //script.src = '/static/assets/AgoraRTC_N-4.8.0.js';
-    //document.body.appendChild(script);
   }
   
   render() {
@@ -24,15 +24,15 @@ export default class Room extends Component {
 
           <section id="controls-wrapper">
             <div className="icon-wrapper">
-              <img className="control-icon" id="mic-btn" src="/static/images/microphone.svg" />
+              <img className="control-icon" id="mic-btn" src="/static/images/microphone.svg" alt="Microphone" />
             </div>
 
             <div className="icon-wrapper">
-              <img className="control-icon" id="camera-btn" src="/static/images/video.svg" />
+              <img className="control-icon" id="camera-btn" src="/static/images/video.svg" alt="Video" />
             </div>
 
             <div className="icon-wrapper">
-              <img className="control-icon" id="leave-btn" src="/static/images/leave.svg" />
+              <img className="control-icon" id="leave-btn" src="/static/images/leave.svg" alt="Leave" />
             </div>
           </section>
         </main>
